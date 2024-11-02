@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const products = [
+	{
+		title: "Pendientes de Luna",
+		price: 15.99,
+		image: "/images/pendientes-luna.jpg",
+		description: "Delicados pendientes artesanales con diseño de luna creciente"
+	},
+	{
+		title: "Llavero Personalizado",
+		price: 12.99,
+		image: "/images/llavero-personalizado.jpg",
+		description: "Llavero hecho a mano con tu nombre o mensaje especial"
+	},
+	{
+		title: "Collar Bohemio",
+		price: 24.99,
+		image: "/images/collar-bohemio.jpg",
+		description: "Collar artesanal con piedras naturales y diseño único"
+	},
+	{
+		title: "Pulsera Trenzada",
+		price: 18.99,
+		image: "/images/pulsera-trenzada.jpg",
+		description: "Pulsera artesanal trenzada con hilos de colores"
+	},
+	{
+		title: "Pendientes de Flor",
+		price: 16.99,
+		image: "/images/pendientes-flor.jpg",
+		description: "Elegantes pendientes con diseño floral"
+	},
+	{
+		title: "Llavero Macramé",
+		price: 14.99,
+		image: "/images/llavero-macrame.jpg",
+		description: "Llavero decorativo en macramé con cuentas de madera"
+	}
+];
+---
+
+<Layout title="Productos - Los mimos de Estela">
+	<div class="products-page">
+		<h1>Nuestros Productos</h1>
+		<p class="products-intro">Descubre nuestra colección de artesanía única</p>
+		
+		<div class="filters">
+			<button class="filter-btn active">Todos</button>
+			<button class="filter-btn">Pendientes</button>
+			<button class="filter-btn">Llaveros</button>
+			<button class="filter-btn">Collares</button>
+		</div>
+
+		<div class="products-grid">
+			{products.map(product => (
+				<ProductCard {...product} />
+			))}
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.products-page {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.products-intro {
+		text-align: center;
+		margin-bottom: 2rem;
+		color: var(--color-text);
+	}
+
+	.filters {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	.filter-btn {
+		background: none;
+		border: 2px solid var(--color-secondary);
+		color: var(--color-secondary);
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.filter-btn:hover, .filter-btn.active {
+		background: var(--color-secondary);
+		color: white;
+	}
+
+	.products-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+</style>

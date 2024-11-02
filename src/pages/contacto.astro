@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout title="Contacto - Los mimos de Estela">
+	<div class="contact-page">
+		<h1>Contacto</h1>
+		<p class="contact-intro">¿Interesado en alguno de nuestros productos? ¿Tienes alguna pregunta? ¡No dudes en contactarnos!</p>
+		<ContactForm />
+	</div>
+</Layout>
+
+<style>
+	.contact-page {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.contact-intro {
+		text-align: center;
+		margin-bottom: 2rem;
+		color: var(--color-text);
+	}
+</style>

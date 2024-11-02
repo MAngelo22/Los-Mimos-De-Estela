@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const featuredProducts = [
+	{
+		title: "Pendientes de Luna",
+		price: 15.99,
+		image: "/images/pendientes-luna.jpg",
+		description: "Delicados pendientes artesanales con diseño de luna creciente"
+	},
+	{
+		title: "Llavero Personalizado",
+		price: 12.99,
+		image: "/images/llavero-personalizado.jpg",
+		description: "Llavero hecho a mano con tu nombre o mensaje especial"
+	},
+	{
+		title: "Collar Bohemio",
+		price: 24.99,
+		image: "/images/collar-bohemio.jpg",
+		description: "Collar artesanal con piedras naturales y diseño único"
+	}
+];
+---
+
+<Layout title="Los mimos de Estela - Artesanía con amor">
+	<section class="hero">
+		<h1>Los mimos de Estela</h1>
+		<p>Artesanía única hecha con amor</p>
+	</section>
+
+	<section class="featured">
+		<h2>Productos Destacados</h2>
+		<div class="products-grid">
+			{featuredProducts.map(product => (
+				<ProductCard {...product} />
+			))}
+		</div>
+	</section>
+
+	<section class="about">
+		<h2>Sobre Nosotros</h2>
+		<p>En Los mimos de Estela, cada pieza es única y está creada con dedicación y amor. Nuestras creaciones artesanales son el regalo perfecto para esas personas especiales en tu vida.</p>
+	</section>
+</Layout>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: 4rem 0;
+		background: linear-gradient(rgba(243, 210, 193, 0.2), rgba(243, 210, 193, 0.1));
+		border-radius: 12px;
+		margin-bottom: 4rem;
+	}
+
+	.hero h1 {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.hero p {
+		font-size: 1.2rem;
+		color: var(--color-text);
+	}
+
+	.featured {
+		margin-bottom: 4rem;
+	}
+
+	.featured h2 {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	.products-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.about {
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2rem;
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	}
+
+	.about h2 {
+		margin-bottom: 1rem;
+	}
+
+	.about p {
+		line-height: 1.6;
+	}
+</style>

@@ -1,0 +1,122 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Los mimos de Estela - Artesanía con amor" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<nav>
+			<div class="nav-content">
+				<a href="/" class="logo">Los mimos de Estela</a>
+				<div class="nav-links">
+					<a href="/">Inicio</a>
+					<a href="/productos">Productos</a>
+					<a href="/contacto">Contacto</a>
+				</div>
+			</div>
+		</nav>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<p>&copy; 2024 Los mimos de Estela. Todos los derechos reservados.</p>
+		</footer>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--color-primary: #f3d2c1;
+		--color-secondary: #8b5e3c;
+		--color-text: #2c1810;
+		--color-background: #fef6f0;
+		--color-accent: #e6a984;
+	}
+	
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	html {
+		font-family: 'Raleway', sans-serif;
+		background: var(--color-background);
+		color: var(--color-text);
+	}
+
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	nav {
+		background-color: var(--color-primary);
+		padding: 1rem 0;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+
+	.nav-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo {
+		font-family: 'Playfair Display', serif;
+		font-size: 1.5rem;
+		color: var(--color-secondary);
+		text-decoration: none;
+		font-weight: 700;
+	}
+
+	.nav-links a {
+		color: var(--color-secondary);
+		text-decoration: none;
+		margin-left: 2rem;
+		transition: color 0.3s ease;
+	}
+
+	.nav-links a:hover {
+		color: var(--color-text);
+	}
+
+	main {
+		flex: 1;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	footer {
+		background-color: var(--color-primary);
+		color: var(--color-secondary);
+		text-align: center;
+		padding: 1rem;
+		margin-top: auto;
+	}
+
+	h1, h2, h3 {
+		font-family: 'Playfair Display', serif;
+		color: var(--color-secondary);
+	}
+</style>
